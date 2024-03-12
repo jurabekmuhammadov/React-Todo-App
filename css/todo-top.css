@@ -1,0 +1,18 @@
+#todo-top {
+  width: 100%;
+}
+#todo-top form {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+#todo-top form .input-field {
+  font-size: 18px;
+  width: 90%;
+  outline: none;
+}
+#todo-top form .add {
+  width: 10%;
+}

@@ -1,0 +1,30 @@
+#todo {
+  margin: 50px 0 50px 0;
+
+  .todo__container {
+    .edit-input {
+      margin-top: 20px;
+
+      form {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+
+        input {
+          font-size: 18px;
+          width: 90%;
+          outline: none;
+        }
+
+        .update {
+          width: 10%;
+        }
+      }
+    }
+
+    .edit-close {
+      display: none;
+    }
+  }
+}

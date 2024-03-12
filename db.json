@@ -1,0 +1,29 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "desc": "Have to go to the gym after the lesson",
+      "isComplated": false
+    },
+    {
+      "id": "2",
+      "desc": "Have to go to the gym after the lesson",
+      "isComplated": false
+    },
+    {
+      "id": "3",
+      "desc": "Have to go to the gym after the lesson",
+      "isComplated": false
+    },
+    {
+      "id": "4",
+      "desc": "Have to go to the gym after the lesson",
+      "isComplated": false
+    },
+    {
+      "id": "5",
+      "desc": "Have to go to the gym after the lesson",
+      "isComplated": false
+    }
+  ]
+}
