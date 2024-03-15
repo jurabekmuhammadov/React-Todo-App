@@ -1,18 +1,40 @@
-#todo-top {
-  width: 100%;
-}
 #todo-top form {
-  margin-top: 20px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 10px;
 }
 #todo-top form .input-field {
-  font-size: 18px;
+  padding: 7px 15px;
+  background-color: transparent;
   width: 90%;
+  border: 1px solid #9E78CF;
+  border-radius: 5px;
+  color: white;
   outline: none;
+  font-family: Montserrat, "sans-serif";
+}
+#todo-top form .input-field::-moz-placeholder {
+  font-family: Montserrat, "sans-serif" !important;
+}
+#todo-top form .input-field::placeholder {
+  font-family: Montserrat, "sans-serif" !important;
 }
 #todo-top form .add {
   width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px;
+  background-color: transparent;
+  background-color: #9E78CF;
+  border: 1px solid #9E78CF;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#todo-top form .add:hover {
+  background-color: #7b54ad;
+  border: 1px solid #7b54ad;
 }

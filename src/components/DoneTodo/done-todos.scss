@@ -1,0 +1,11 @@
+.done-todos {
+  // margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  p {
+    color: rgb(0, 168, 0);
+    text-decoration: line-through;
+  }
+}

@@ -1,16 +1,20 @@
 #todo-list {
-  margin-top: 30px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 16px;
 }
 #todo-list .todo-card {
-  border-radius: 10px;
-  padding: 10px;
+  background-color: #15101C;
+  padding: 20px 25px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background-color: #e6e6e6;
+  justify-content: space-between;
+  gap: 40px;
+  border-radius: 10px;
+}
+#todo-list .todo-card .content p {
+  font-size: 16px;
+  color: #9E78CF;
 }
 #todo-list .todo-card .actions {
   display: flex;
@@ -18,9 +22,17 @@
   gap: 10px;
 }
 #todo-list .todo-card .actions button {
+  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5px;
+  border: none;
   cursor: pointer;
+  transition: 0.3s;
+}
+#todo-list .todo-card .actions button svg {
+  transition: 0.3s;
+}
+#todo-list .todo-card .actions button:hover svg {
+  transform: translateY(-10px);
 }

@@ -44,6 +44,10 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  background-color: #0D0714;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Inherit fonts for inputs and buttons */
@@ -52,4 +56,12 @@ button,
 textarea,
 select {
   font: inherit;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

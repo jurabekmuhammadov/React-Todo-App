@@ -1,25 +1,22 @@
 import axios from "axios";
+import TodoTop from "../components/TodoTop/TodoTop";
 import { useEffect } from "react";
 import { useState } from "react";
-import TodoTop from "../components/TodoTop/TodoTop";
-import "./todo.scss";
 import TodoList from "../components/TodoList/TodoList";
+import "./todo.scss";
+import DoneTodo from "../components/DoneTodo/DoneTodo";
 
 const Todo = () => {
-  const [todos, setTodos] = useState([]);
-  const [newTodo, setAddTodo] = useState({
-    id: null,
-    desc: "",
-    isComplated: true,
-  });
-  const [editMode, setEditMode] = useState(false);
-  const [updatedTodo, setUpdateTodo] = useState({});
-  const [input, setInput] = useState("");
-
   useEffect(() => {
-    fetchUsers();
+    fetchTodos();
   }, []);
-  async function fetchUsers() {
+
+  const [todos, setTodos] = useState([]);
+  const [isEditOpen, setIsEditOpen] = useState(false);
+  const [updatedTodo, setUpdatedTodo] = useState("");
+  const [editId, setEditId] = useState(null);
+
+  async function fetchTodos() {
     await axios
       .get(`http://localhost:3000/todos`)
       .then((response) => {
@@ -29,70 +26,53 @@ const Todo = () => {
         console.log(err.message);
       });
   }
-  async function deleteTodo(id) {
+  async function fetchEditTodo(id) {
+    setIsEditOpen(!isEditOpen);
+    setEditId(id);
     await axios
-      .delete(`http://localhost:3000/todos/${id}`)
-      .then(() => {
-        fetchUsers();
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }
-
-  async function submitUpdate() {
-    const id = localStorage.getItem("id");
-    await axios
-      .put(`http://localhost:3000/todos/${id}`, updatedTodo)
+      .get(`http://localhost:3000/todos/${id}`)
       .then((response) => {
-        setUpdateTodo(response.data);
-        fetchUsers();
+        setUpdatedTodo(response.data.desc);
       })
       .catch((err) => {
         console.log(err.message);
       });
   }
-  const updateTodo = (id) => {
-    localStorage.setItem("id", id);
-    setEditMode(!editMode);
+  const updatingValue = (e) => {
+    setUpdatedTodo(e.target.value);
   };
-
-  const handleChange = (e) => {
-    setInput(e.target.value);
-  };
-
-  const handleAdd = (e) => {
-    setAddTodo(e.target.value);
-  };
-
-  async function addTodo() {
+  async function updateTodo() {
     await axios
-      .post(`http://localhost:3000/todos`, newTodo)
-      .then(() => {
-        fetchUsers();
+      .put(`http://localhost:3000/todos/${editId}`, {
+        id: editId,
+        desc: updatedTodo,
+        isCompleted: false,
       })
       .catch((err) => {
         console.log(err.message);
       });
   }
+
   return (
     <section id="todo">
-      <div className="container todo__container">
-        <TodoTop handleAdd={handleAdd} addTodo={addTodo} />
-        <div className={`edit-input ${editMode ? "edit-open" : "edit-close"}`}>
-          <form>
-            <input onChange={handleChange} type="text" value={input} />
-            <button className="update" onClick={submitUpdate}>
-              Update
-            </button>
-          </form>
-        </div>
-        <TodoList
-          todos={todos}
-          deleteTodo={deleteTodo}
-          updateTodo={updateTodo}
-        />
+      <div id="top">
+        <TodoTop />
+        <form
+          className={`edit-input ${isEditOpen ? "open-edit" : "close-edit"}`}
+          onSubmit={updateTodo}
+        >
+          <input onChange={updatingValue} type="text" value={updatedTodo} />
+          <button type="submit">Save</button>
+        </form>
       </div>
+      <h3>Tasks to do - {todos.length}</h3>
+      <TodoList
+        todos={todos}
+        fetchTodos={fetchTodos}
+        fetchEditTodo={fetchEditTodo}
+      />
+      <h3>Done - 0</h3>
+      <DoneTodo />
     </section>
   );
 };

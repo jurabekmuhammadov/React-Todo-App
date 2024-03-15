@@ -3,27 +3,19 @@
     {
       "id": "1",
       "desc": "Have to go to the gym after the lesson",
-      "isComplated": false
+      "isCompleted": true
     },
     {
       "id": "2",
-      "desc": "Have to go to the gym after the lesson",
-      "isComplated": false
+      "desc": "Clean the room before go to bed"
     },
     {
       "id": "3",
-      "desc": "Have to go to the gym after the lesson",
-      "isComplated": false
+      "desc": "Read a historical book in spread time"
     },
     {
       "id": "4",
-      "desc": "Have to go to the gym after the lesson",
-      "isComplated": false
-    },
-    {
-      "id": "5",
-      "desc": "Have to go to the gym after the lesson",
-      "isComplated": false
+      "desc": "Make a dinner for family"
     }
   ]
 }

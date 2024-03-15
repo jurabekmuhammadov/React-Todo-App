@@ -1,30 +1,67 @@
 #todo {
-  margin: 50px 0 50px 0;
+  background-color: #2b2433;
+  padding: 50px 60px;
+  border-radius: 20px;
+  height: auto;
 
-  .todo__container {
+  #top {
+    .close-edit {
+      display: none !important;
+    }
+
+    .open-edit {
+      display: flex;
+    }
+
     .edit-input {
-      margin-top: 20px;
+      margin-top: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
 
-      form {
+      input {
+        padding: 7px 15px;
+        background-color: transparent;
+        width: 90%;
+        border: 1px solid #9E78CF;
+        border-radius: 5px;
+        color: white;
+        outline: none;
+        font-family: Montserrat, "sans-serif";
+
+        &::placeholder {
+          font-family: Montserrat, "sans-serif" !important;
+        }
+      }
+
+      button {
+        width: 10%;
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        gap: 20px;
+        justify-content: center;
+        padding: 7px;
+        background-color: transparent;
+        background-color: #9E78CF;
+        border: 1px solid #9E78CF;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+        color: white;
+        font-weight: 500;
 
-        input {
-          font-size: 18px;
-          width: 90%;
-          outline: none;
-        }
-
-        .update {
-          width: 10%;
+        &:hover {
+          background-color: #7b54ad;
+          border: 1px solid #7b54ad;
         }
       }
     }
+  }
 
-    .edit-close {
-      display: none;
-    }
+  h3 {
+    color: white;
+    font-size: 18px;
+    margin-top: 30px;
+    margin-bottom: 10px;
   }
 }
